@@ -1,3 +1,20 @@
 toBinaryString（int i）：返回int变量的二进制表示的字符串。
 toHexString（int i）：返回int变量的16进制字符串。
 toOctalString（int i）：返回int变量的8进制表示字符串。
+
+Hashmap：根据键的HashCode值存储数据，根据键可以直接获取它的值，具有很快的访问速度。遍历时，取得数据的顺序是完全随机的；
+HashMap最多只允许一条记录的键为Null；允许多条记录的值为Null；
+HashMap不支持线程的同步（非线程安全），即任一时刻可以有多个线程同时写HashMap，可能会导致数据的不一致；同步，可以用Collections的synchronizedMap方法使HashMap具有同步的能力，
+或者使用ConcurrentHashMap。
+
+Hashtable：HashTable与HashMap类似，它不允许记录的键或者值为空；
+支持线程的同步（线程安全），即任一时刻只有一个线程能写HashTable，因此导致了Hashtable在写入时会比较慢。
+LinkedHashMap
+
+LinkedHashMap是HashMap的一个子类；LinkedHashMap保存了记录的插入顺序，在用Iterator遍历LinkedHashMap时，先得到的记录肯定是先插入的；
+在遍历的时候会比HashMap慢，不过有种情况例外，当HashMap容量很大，实际数据较少时，遍历起来可能会比LinkedHashMap慢，因为LinkedHashMap的遍历速度只和实际数据有关，和容量无关
+，而HashMap的遍历速度和他的容量有关
+
+TreeMap实现SortMap接口，能够把它保存的记录根据键排序，默认是按键值的升序排序，也可以指定排序的比较器。当用Iterator遍历TreeMap时，得到的记录是排过序的。
+TreeMap取出来的是排序后的键值对。但如果您要按自然顺序或自定义顺序遍历键，那么TreeMap会更好。TreeMap基于红黑树实现。TreeMap没有调优选项，因为该树总处于平衡状态。非线程安全
+
